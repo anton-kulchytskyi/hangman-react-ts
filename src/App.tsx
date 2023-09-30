@@ -1,13 +1,60 @@
-// import { useState } from 'react'
+import { useState, useCallback, useEffect } from 'react';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css';
+import { getRandomWord } from './utils/getRandomWord';
+
+import { Loader } from './components/Loader';
+import { Gallows } from './components/Gallows';
+// import { DrawHangman } from './components/DrawHangman';
+import { WordToGuess } from './components/WordToGuess';
+import { Alphabet } from './components/Alphabet';
+
+import './App.scss';
 
 export const App: React.FC = () => {
+  const [loader, setLoader] = useState(true);
+  const [wordToGuess, setWordToGuess] = useState<string>('');
+  const [hint, setHint] = useState<string>('');
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+
+  const fetch = useCallback(async () => {
+    const { word, definition } = await getRandomWord();
+
+    setWordToGuess(word);
+    setHint(definition);
+    setLoader(false);
+  }, []);
+
+  useEffect(() => {
+    fetch();
+  }, [fetch]);
+
+  const addGuessedLetter = useCallback(
+    (letter: string) => {
+      if (guessedLetters.includes(letter)) {
+        return;
+      }
+
+      setGuessedLetters(currLetters => [...currLetters, letter]);
+    },
+    [guessedLetters],
+  );
+
   return (
-    <>
-      Hello
-    </>
+    <div className="App">
+      {loader
+        ? (<Loader />) : (
+          <>
+            <Gallows />
+            <WordToGuess
+              wordToGuess={wordToGuess}
+              hint={hint}
+              guessedLetters={guessedLetters}
+            />
+            <Alphabet addGuessedLetter={addGuessedLetter} />
+          </>
+        )}
+    </div>
   );
 };
 

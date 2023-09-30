@@ -1,0 +1,31 @@
+.gallows {
+  position: relative;
+
+  &__part {
+    background-color: #000;
+
+    &--top-short {
+      position: absolute;
+      left: 190px;
+      height: 50px;
+      width: 10px;
+    }
+
+    &--top {
+      height: 10px;
+      width: 140px;
+      margin-left: 50px;
+    }
+
+    &--vertical {
+      height: 280px;
+      width: 10px;
+      margin-left: 50px;
+    }
+
+    &--base {
+      height: 10px;
+      width: 250px;
+    }
+  }
+}

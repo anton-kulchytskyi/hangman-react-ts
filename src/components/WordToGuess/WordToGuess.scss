@@ -1,0 +1,16 @@
+.guess-letters {
+  display: flex;
+  gap: 0.5rem;
+
+  & > * {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    font-weight: 900;
+    border-bottom: 2px solid #000;
+  }
+}
+
+.hint {
+  font-size: 0.75rem;
+}

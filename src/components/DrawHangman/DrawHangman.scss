@@ -1,0 +1,49 @@
+.body-part {
+  position: absolute;
+  background-color: #000;
+  width: 10px;
+  left: 190px;
+}
+
+.head {
+  position: absolute;
+  left: 165px;
+  top: 50px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 10px #000 solid;
+}
+
+.corpse {
+  top: 110px;
+  height: 90px;
+}
+
+.arm {
+  top: 150px;
+  height: 60px;
+  transform-origin: top;
+
+  &--right {
+    transform: rotate(115deg);
+  }
+
+  &--left {
+    transform: rotate(-115deg);
+  }
+}
+
+.leg {
+  top: 200px;
+  height: 70px;
+  transform-origin: top;
+
+  &--right {
+    transform: rotate(35deg);
+  }
+
+  &--left {
+    transform: rotate(-35deg);
+  }
+}

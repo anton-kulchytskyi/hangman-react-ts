@@ -2,15 +2,25 @@
   display: flex;
   gap: 0.5rem;
 
-  & > * {
+  &__hide {
     width: 30px;
     height: 30px;
     font-size: 24px;
     font-weight: 900;
     border-bottom: 2px solid #000;
+    color: transparent;
+
+    &--target {
+      color: #ffffffde;
+    }
+
+    &--lose {
+      color: red;
+    }
   }
 }
 
 .hint {
   font-size: 0.75rem;
+  padding: 0 0.5rem;
 }

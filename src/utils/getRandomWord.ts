@@ -13,12 +13,12 @@ export async function getRandomWord() {
 
   return axios.get(url)
     .then(res => {
-      // eslint-disable-next-line
-      console.log(res.data)
+      const word = res.data[0].word.toUpperCase().split('');
+      const { definition } = res.data[0].meanings[0].definitions[0];
 
       return {
-        word: res.data[0].word.toUpperCase(),
-        definition: res.data[0].meanings[0].definitions[0].definition,
+        word,
+        definition,
       };
     });
 }

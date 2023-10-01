@@ -8,8 +8,13 @@ const leftArm = <div key="4" className="body-part arm arm--left" />;
 const rightLeg = <div key="5" className="body-part leg leg--right" />;
 const leftLeg = <div key="6" className="body-part leg leg--left" />;
 
-export const DrawHangman: React.FC = memo(() => {
-  const skeleton = [head, corpse, rightArm, leftArm, rightLeg, leftLeg];
+type Props = {
+  numberOfGuesses: number
+};
+
+export const DrawHangman: React.FC<Props> = memo(({ numberOfGuesses }) => {
+  const skeleton = [head, corpse, rightArm, leftArm, rightLeg, leftLeg]
+    .slice(0, numberOfGuesses);
 
   return (
     <>

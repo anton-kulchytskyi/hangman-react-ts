@@ -9,11 +9,19 @@ type Props = {
   guessedLetters: string[];
   isLose: boolean;
   isWin: boolean;
+  isHintVisible: boolean,
+  setIsHintVisible: (isHintVisible: boolean) => void,
 };
 
 export const WordToGuess: React.FC<Props> = memo(
   ({
-    wordToGuess, hint, guessedLetters, isLose, isWin,
+    wordToGuess,
+    hint,
+    guessedLetters,
+    isLose,
+    isWin,
+    isHintVisible,
+    setIsHintVisible,
   }) => {
     return (
       <>
@@ -37,7 +45,24 @@ export const WordToGuess: React.FC<Props> = memo(
             </span>
           ))}
         </div>
-        {!isLose && !isWin && <span className="hint">{hint}</span>}
+        {!isHintVisible ? (
+          <label
+            htmlFor="showHint"
+            className="hint"
+          >
+            Need some help?
+            {' '}
+            <input
+              type="checkbox"
+              id="showHint"
+              name="showHint"
+              checked={isHintVisible}
+              onChange={e => setIsHintVisible(e.target.checked)}
+            />
+          </label>
+        ) : (
+          !isLose && !isWin && <span className="hint">{hint}</span>
+        )}
         {isLose && (
           <span className="hint">
             Oops, you lost! Please refresh to try again!

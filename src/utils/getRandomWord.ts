@@ -13,6 +13,10 @@ export async function getRandomWord() {
 
   return axios.get(url)
     .then(res => {
+      if (res.status !== 200) {
+        throw new Error(`${res.status} - ${res.statusText}`);
+      }
+
       const word = res.data[0].word.toUpperCase().split('');
       const { definition } = res.data[0].meanings[0].definitions[0];
 

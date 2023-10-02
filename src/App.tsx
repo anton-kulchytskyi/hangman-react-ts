@@ -14,6 +14,7 @@ export const App: React.FC = () => {
   const [wordToGuess, setWordToGuess] = useState<string[]>([]);
   const [hint, setHint] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [isHintVisible, setIsHintVisible] = useState(false);
 
   const fetch = useCallback(async () => {
     const { word, definition } = await getRandomWord();
@@ -64,6 +65,8 @@ export const App: React.FC = () => {
             guessedLetters={guessedLetters}
             isLose={isLose}
             isWin={isWin}
+            isHintVisible={isHintVisible}
+            setIsHintVisible={setIsHintVisible}
           />
           <Alphabet
             addGuessedLetter={addGuessedLetter}

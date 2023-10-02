@@ -5,6 +5,7 @@ import { checkCh } from './utils/checkCh';
 import { Loader } from './components/Loader';
 import { Gallows } from './components/Gallows';
 import { WordToGuess } from './components/WordToGuess';
+import { Message } from './components/Message';
 import { Alphabet } from './components/Alphabet';
 
 import './App.scss';
@@ -61,8 +62,11 @@ export const App: React.FC = () => {
           <Gallows numberOfGuesses={numberOfGuesses} />
           <WordToGuess
             wordToGuess={wordToGuess}
-            hint={hint}
             guessedLetters={guessedLetters}
+            isLose={isLose}
+          />
+          <Message
+            hint={hint}
             isLose={isLose}
             isWin={isWin}
             isHintVisible={isHintVisible}

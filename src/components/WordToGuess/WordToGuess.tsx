@@ -5,23 +5,23 @@ import './WordToGuess.scss';
 
 type Props = {
   wordToGuess: string[];
-  hint: string;
+  // hint: string;
   guessedLetters: string[];
   isLose: boolean;
-  isWin: boolean;
-  isHintVisible: boolean,
-  setIsHintVisible: (isHintVisible: boolean) => void,
+  // isWin: boolean;
+  // isHintVisible: boolean,
+  // setIsHintVisible: (isHintVisible: boolean) => void,
 };
 
 export const WordToGuess: React.FC<Props> = memo(
   ({
     wordToGuess,
-    hint,
+    // hint,
     guessedLetters,
     isLose,
-    isWin,
-    isHintVisible,
-    setIsHintVisible,
+    // isWin,
+    // isHintVisible,
+    // setIsHintVisible,
   }) => {
     return (
       <>
@@ -45,7 +45,7 @@ export const WordToGuess: React.FC<Props> = memo(
             </span>
           ))}
         </div>
-        {!isHintVisible ? (
+        {/* {!isHintVisible ? (
           <label
             htmlFor="showHint"
             className="hint"
@@ -72,7 +72,7 @@ export const WordToGuess: React.FC<Props> = memo(
           <span className="hint">
             Congrats! You won! Refresh for another try!
           </span>
-        )}
+        )} */}
       </>
     );
   },

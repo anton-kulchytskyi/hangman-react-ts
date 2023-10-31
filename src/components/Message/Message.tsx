@@ -18,7 +18,7 @@ export const Message: React.FC<Props> = memo(
   }) => {
     return (
       <>
-        {!isHintVisible ? (
+        {!isHintVisible && !isLose && !isWin ? (
           <label
             htmlFor="showHint"
             className="hint"
